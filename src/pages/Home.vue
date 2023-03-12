@@ -1,7 +1,30 @@
 <template>
   <div>home page</div>
+  <button @click="change">{{ count }}</button>
 </template>
 
 <script>
-export default {};
+import { defineComponent, ref, watchEffect, watch, unref } from 'vue';
+
+export default {
+  setup(props, context) {
+    console.log(props, context);
+
+    const count = ref(0);
+
+    function change() {
+      this.count++;
+    }
+
+    watchEffect(() => {
+      console.log('watchEffect', unref(count));
+    });
+
+    watch(count, (count, prevCount) => {
+      console.log('watch', count);
+    });
+
+    return { count, change };
+  },
+};
 </script>

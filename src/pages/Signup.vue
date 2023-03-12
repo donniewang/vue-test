@@ -1,7 +1,20 @@
 <template>
-  <div>signup page</div>
+  <div>home page</div>
+  <div @click="change">{{ count }}</div>
 </template>
 
 <script>
-export default {};
+import { defineComponent, ref } from 'vue';
+
+export default {
+  setup() {
+    const count = ref(0);
+
+    const change = function () {
+      this.count++;
+    };
+
+    return { count, change };
+  },
+};
 </script>
