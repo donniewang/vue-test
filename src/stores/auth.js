@@ -7,12 +7,12 @@ export const authStore = defineStore('auth', () => {
   const server = inject('server');
 
   function signin(username, password) {
-    console.log(unref(server) + '/api/auth/signin');
-    fetch(unref(server) + '/api/auth/signin?username=admin&password=123456', {
+    console.log(unref(server) + `/api/auth/signin?username=${username}&password=${password}`);
+    fetch(unref(server) + `/api/auth/signin?username=${username}&password=${password}`, {
       method: 'GET',
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => user.value = data)
       .catch((e) => {
         console.error(e);
       });

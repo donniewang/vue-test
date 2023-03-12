@@ -3,7 +3,7 @@
   <div>{{ user }}</div>
   <div>{{ jumpUrl }}</div>
   <div>
-    <button @click="signin">signin</button>
+    <button @click="signin('admin','123456')">signin</button>
   </div>
 </template>
 

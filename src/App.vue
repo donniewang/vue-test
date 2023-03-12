@@ -14,14 +14,11 @@
 </template>
 
 <script>
-import { route } from 'vue-router';
-
 export default {
   setup() {
     function native(path) {
       this.$router.push(path);
     }
-
     return { native };
   },
 };
