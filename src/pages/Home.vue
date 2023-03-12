@@ -1,22 +1,23 @@
 <template>
   <div>home page</div>
-  <button @click="change">{{ count }}</button>
+  <div>{{ user }}</div>
+  <div>{{ jumpUrl }}</div>
+  <div>
+    <button @click="signin">signin</button>
+  </div>
 </template>
 
 <script>
-import { defineComponent, ref, watchEffect, watch, unref } from 'vue';
+import { ref, unref } from 'vue';
+import { authStore } from '../stores/auth';
 
 export default {
   setup(props, context) {
-    console.log(props, context);
+    const store = authStore();
 
-    const count = ref(0);
+    const { user, jumpUrl, signin, signout } = store;
 
-    function change() {
-      count.value++;
-    }
-
-    return { count, change };
+    return { user, jumpUrl, signin, signout };
   },
 };
 </script>

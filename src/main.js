@@ -48,4 +48,9 @@ router.beforeEach((to, from) => {
 
 app.use(router);
 
+app.provide(
+  'server',
+  'https://expresssimple9jetcr-jnqj--3010.local-credentialless.webcontainer.io'
+);
+
 app.mount('#app');
