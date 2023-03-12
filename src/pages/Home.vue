@@ -13,7 +13,7 @@ export default {
     const count = ref(0);
 
     function change() {
-      this.count++;
+      count.value++;
     }
 
     return { count, change };
