@@ -20,9 +20,13 @@ export default {
       console.log('watchEffect', unref(count));
     });
 
-    watch(count, (count, prevCount) => {
-      console.log('watch', count);
-    });
+    watch(
+      count,
+      (count, prevCount) => {
+        console.log('watch', count);
+      },
+      { deep: true }
+    );
 
     return { count, change };
   },
