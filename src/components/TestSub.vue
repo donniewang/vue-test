@@ -34,15 +34,6 @@ export default {
       msg: this.message,
     };
   },
-  watch: {
-    count(newQuestion, oldQuestion) {
-      if (newQuestion > 3) {
-        this.isDisabled = true;
-      } else {
-        this.isDisabled = false;
-      }
-    },
-  },
   computed: {
     isComputedDisabled() {
       return this.isDisabled;
