@@ -8,15 +8,14 @@ export const authStore = defineStore('auth', () => {
 
   function signin(username, password) {
     console.log(unref(server) + '/api/auth/signin');
-
-    // fetch(unref(server) + '/api/auth/signin')
-    //   .then((res) => {
-    //     console.log('111');
-    //     console.log(res);
-    //   })
-    //   .catch((e) => {
-    //     console.error(e);
-    //   });
+    fetch(unref(server) + '/api/auth/signin?username=admin&password=123456', {
+      method: 'GET',
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((e) => {
+        console.error(e);
+      });
   }
 
   function signout(username, password) {
